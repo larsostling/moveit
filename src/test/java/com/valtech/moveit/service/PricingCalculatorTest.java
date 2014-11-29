@@ -65,4 +65,15 @@ public class PricingCalculatorTest {
         price = underTest.calculatePriceForQuotation(quotation);
         assertThat(price, is(4400));
     }
+
+    @Test
+    public void calculatePriceForQuotationWithOrWithoutPiano() {
+        Quotation quotation = new Quotation(10, 49, 0, false);
+        int price = underTest.calculatePriceForQuotation(quotation);
+        assertThat(price, is(1100));
+
+        quotation = new Quotation(10, 49, 0, true);
+        price = underTest.calculatePriceForQuotation(quotation);
+        assertThat(price, is(6100));
+    }
 }
