@@ -7,7 +7,8 @@ public class PricingCalculator {
         int pricePerCar = calculatePriceForDistance(quotation.getDistanceInKilometers());
         int numberOfCars =
                 calculateNumberOfCars(quotation.getAreaInSquareMeters(), quotation.getStorageAreaInSquareMeters());
-        return pricePerCar * numberOfCars;
+        int priceForPiano = getPriceForPiano(quotation.isIncludePiano());
+        return pricePerCar * numberOfCars + priceForPiano;
     }
 
     private int calculatePriceForDistance(int distance) {
@@ -23,5 +24,9 @@ public class PricingCalculator {
     private int calculateNumberOfCars(int area, int storageArea) {
         int totalArea = area + 2 * storageArea;
         return 1 + totalArea / 50;
+    }
+
+    private int getPriceForPiano(boolean includePiano) {
+        return includePiano ? 5000 : 0;
     }
 }
