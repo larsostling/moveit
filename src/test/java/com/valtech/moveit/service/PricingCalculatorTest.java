@@ -42,4 +42,27 @@ public class PricingCalculatorTest {
         price = underTest.calculatePriceForQuotation(quotation);
         assertThat(price, is(10700));
     }
+
+    @Test
+    public void calculatePriceForQuotationBasedOnArea() {
+        Quotation quotation = new Quotation(10, 49, 0, false);
+        int price = underTest.calculatePriceForQuotation(quotation);
+        assertThat(price, is(1100));
+
+        quotation = new Quotation(10, 10, 25, false);
+        price = underTest.calculatePriceForQuotation(quotation);
+        assertThat(price, is(2200));
+
+        quotation = new Quotation(10, 50, 0, false);
+        price = underTest.calculatePriceForQuotation(quotation);
+        assertThat(price, is(2200));
+
+        quotation = new Quotation(10, 100, 0, false);
+        price = underTest.calculatePriceForQuotation(quotation);
+        assertThat(price, is(3300));
+
+        quotation = new Quotation(10, 150, 0, false);
+        price = underTest.calculatePriceForQuotation(quotation);
+        assertThat(price, is(4400));
+    }
 }
