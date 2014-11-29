@@ -16,6 +16,10 @@ public class QuotationService {
         return quotation;
     }
 
+    public Quotation getQuotation(String quotationId) {
+        return null;
+    }
+
     private String generateQuotationId() {
         String quotationId = UUID.randomUUID().toString();
         return quotationId.replaceAll("-", "");
