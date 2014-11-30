@@ -32,7 +32,7 @@ public class QuotationServiceTest {
         assertThat(addedQuotation.getDistanceInKilometers(), is(quotation.getDistanceInKilometers()));
         assertThat(addedQuotation.getAreaInSquareMeters(), is(quotation.getAreaInSquareMeters()));
         assertThat(addedQuotation.getStorageAreaInSquareMeters(), is(quotation.getStorageAreaInSquareMeters()));
-        assertThat(addedQuotation.isIncludePiano(), is(quotation.isIncludePiano()));
+        assertThat(addedQuotation.getIncludePiano(), is(quotation.getIncludePiano()));
         assertThat(addedQuotation.getPrice(), is(EXPECTED_PRICE));
         assertThat(addedQuotation.getQuotationId(), is(notNullValue()));
     }
@@ -45,7 +45,7 @@ public class QuotationServiceTest {
         assertThat(returnedQuotation.getDistanceInKilometers(), is(expectedQuotation.getDistanceInKilometers()));
         assertThat(returnedQuotation.getAreaInSquareMeters(), is(expectedQuotation.getAreaInSquareMeters()));
         assertThat(returnedQuotation.getStorageAreaInSquareMeters(), is(expectedQuotation.getStorageAreaInSquareMeters()));
-        assertThat(returnedQuotation.isIncludePiano(), is(expectedQuotation.isIncludePiano()));
+        assertThat(returnedQuotation.getIncludePiano(), is(expectedQuotation.getIncludePiano()));
         assertThat(returnedQuotation.getPrice(), is(expectedQuotation.getPrice()));
         assertThat(returnedQuotation.getQuotationId(), is(expectedQuotation.getQuotationId()));
     }

@@ -10,6 +10,8 @@ public class Quotation {
     private int price;
     private String quotationId;
 
+    public Quotation() {}
+
     public Quotation(int distanceInKilometers, int areaInSquareMeters, int storageAreaInSquareMeters,
                      boolean includePiano) {
         this.distanceInKilometers = distanceInKilometers;
@@ -42,7 +44,7 @@ public class Quotation {
         this.storageAreaInSquareMeters = storageAreaInSquareMeters;
     }
 
-    public boolean isIncludePiano() {
+    public boolean getIncludePiano() {
         return includePiano;
     }
 
