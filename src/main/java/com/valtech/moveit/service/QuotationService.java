@@ -3,10 +3,12 @@ package com.valtech.moveit.service;
 import com.valtech.moveit.model.Quotation;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+@Singleton
 public class QuotationService {
 
     @Inject

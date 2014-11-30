@@ -2,7 +2,11 @@ package com.valtech.moveit.service;
 
 import com.valtech.moveit.model.Quotation;
 
+import javax.inject.Singleton;
+
+@Singleton
 public class PricingCalculator {
+
     public int calculatePriceForQuotation(Quotation quotation) {
         int pricePerCar = calculatePriceForDistance(quotation.getDistanceInKilometers());
         int numberOfCars =
