@@ -13,6 +13,22 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.glassfish</groupId>
+                <artifactId>maven-embedded-glassfish-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <app>${project.build.directory}/${project.build.finalName}.war</app>
+                    <port>8080</port>
+                    <contextRoot>moveit</contextRoot>
+                    <autoDelete>true</autoDelete>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -31,6 +47,11 @@
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>1.0.4</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
