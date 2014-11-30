@@ -7,8 +7,10 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.json.Json;
 import javax.json.JsonObject;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
@@ -27,6 +29,14 @@ public class QuotationResource {
         URI uri = uriInfo.getAbsolutePathBuilder().path("/" + quotation.getQuotationId()).build();
         JsonObject response = convertToJsonObject(quotation);
         return Response.created(uri).entity(response).build();
+    }
+
+    @GET
+    @Path("{id}")
+    public Response getQuotation(@PathParam("id") String quotationId) {
+        Quotation quotation = quotationService.getQuotation(quotationId);
+        JsonObject response = convertToJsonObject(quotation);
+        return Response.ok().entity(response).build();
     }
 
     private JsonObject convertToJsonObject(Quotation quotation) {
