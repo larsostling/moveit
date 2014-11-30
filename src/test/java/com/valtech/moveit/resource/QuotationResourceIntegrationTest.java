@@ -72,4 +72,20 @@ public class QuotationResourceIntegrationTest {
         assertThat(returnedQuotation.getPrice(), is(1490));
         assertThat(returnedQuotation.getQuotationId(), is(notNullValue()));
     }
+
+    @Test
+    public void getQuotationById() {
+        Quotation quotation = new Quotation(49, 0, 0, false);
+        Response response = webTarget.request(MediaType.APPLICATION_JSON)
+                .post(Entity.entity(quotation, MediaType.APPLICATION_JSON));
+        Quotation addedQuotation = response.readEntity(Quotation.class);
+        Quotation returnedQuotation = client.target(response.getLocation())
+                .request().accept(MediaType.APPLICATION_JSON).get(Quotation.class);
+        assertThat(returnedQuotation.getDistanceInKilometers(), is(quotation.getDistanceInKilometers()));
+        assertThat(returnedQuotation.getAreaInSquareMeters(), is(quotation.getAreaInSquareMeters()));
+        assertThat(returnedQuotation.getStorageAreaInSquareMeters(), is(quotation.getStorageAreaInSquareMeters()));
+        assertThat(returnedQuotation.getIncludePiano(), is(quotation.getIncludePiano()));
+        assertThat(returnedQuotation.getPrice(), is(1490));
+        assertThat(returnedQuotation.getQuotationId(), is(addedQuotation.getQuotationId()));
+    }
 }
