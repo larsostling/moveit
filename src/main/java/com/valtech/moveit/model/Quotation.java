@@ -1,5 +1,8 @@
 package com.valtech.moveit.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Quotation {
 
     private int distanceInKilometers;

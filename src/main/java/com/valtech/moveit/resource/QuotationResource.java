@@ -7,17 +7,22 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.json.Json;
 import javax.json.JsonObject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
 
 @Singleton
 @Path("quotation")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class QuotationResource {
 
     @Inject
@@ -27,25 +32,13 @@ public class QuotationResource {
     public Response addQuotation(Quotation request, @Context UriInfo uriInfo) {
         Quotation quotation = quotationService.addQuotation(request);
         URI uri = uriInfo.getAbsolutePathBuilder().path("/" + quotation.getQuotationId()).build();
-        JsonObject response = convertToJsonObject(quotation);
-        return Response.created(uri).entity(response).build();
+        return Response.created(uri).entity(quotation).build();
     }
 
     @GET
     @Path("{id}")
     public Response getQuotation(@PathParam("id") String quotationId) {
         Quotation quotation = quotationService.getQuotation(quotationId);
-        JsonObject response = convertToJsonObject(quotation);
-        return Response.ok().entity(response).build();
-    }
-
-    private JsonObject convertToJsonObject(Quotation quotation) {
-        return Json.createObjectBuilder().
-                add("distanceInKilometers", quotation.getDistanceInKilometers()).
-                add("areaInSquareMeters", quotation.getAreaInSquareMeters()).
-                add("storageAreaInSquareMeters", quotation.getStorageAreaInSquareMeters()).
-                add("includePiano", quotation.getIncludePiano()).
-                add("price", quotation.getPrice()).
-                add("quotationId", quotation.getQuotationId()).build();
+        return Response.ok().entity(quotation).build();
     }
 }

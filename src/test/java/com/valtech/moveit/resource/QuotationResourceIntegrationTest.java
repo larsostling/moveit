@@ -1,5 +1,6 @@
 package com.valtech.moveit.resource;
 
+import com.valtech.moveit.RestApplication;
 import com.valtech.moveit.model.Quotation;
 import com.valtech.moveit.service.PricingCalculator;
 import com.valtech.moveit.service.QuotationService;
@@ -44,7 +45,7 @@ public class QuotationResourceIntegrationTest {
         return ShrinkWrap.create(WebArchive.class)
                 .addClass(Quotation.class)
                 .addClass(QuotationResource.class)
-                .addClass(ResourceActivator.class)
+                .addClass(RestApplication.class)
                 .addClass(QuotationService.class)
                 .addClass(PricingCalculator.class);
     }

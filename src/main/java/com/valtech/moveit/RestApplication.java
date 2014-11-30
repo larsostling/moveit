@@ -1,5 +1,6 @@
-package com.valtech.moveit.resource;
+package com.valtech.moveit;
 
+import com.valtech.moveit.resource.QuotationResource;
 import com.valtech.moveit.service.PricingCalculator;
 import com.valtech.moveit.service.QuotationService;
 
@@ -10,9 +11,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @ApplicationPath("/rest")
-public class ResourceActivator extends Application {
+public class RestApplication extends Application {
+    @Override
     public Set<Class<?>> getClasses() {
-        return new HashSet<Class<?>>(
-                Arrays.asList(QuotationResource.class, QuotationService.class, PricingCalculator.class));
+        return new HashSet<>(Arrays.asList(QuotationResource.class, QuotationService.class, PricingCalculator.class));
     }
 }
