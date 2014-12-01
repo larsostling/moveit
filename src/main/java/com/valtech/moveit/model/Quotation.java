@@ -5,6 +5,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Quotation {
 
+    private String requesterName;
+    private String requesterEmail;
+    private String fromAddress;
+    private String toAddress;
     private int distanceInKilometers;
     private int areaInSquareMeters;
     private int storageAreaInSquareMeters;
@@ -15,12 +19,49 @@ public class Quotation {
 
     public Quotation() {}
 
-    public Quotation(int distanceInKilometers, int areaInSquareMeters, int storageAreaInSquareMeters,
+    public Quotation(String requesterName, String requesterEmail, String fromAddress, String toAddress,
+                     int distanceInKilometers, int areaInSquareMeters, int storageAreaInSquareMeters,
                      boolean includePiano) {
+        this.requesterName = requesterName;
+        this.requesterEmail = requesterEmail;
+        this.fromAddress = fromAddress;
+        this.toAddress = toAddress;
         this.distanceInKilometers = distanceInKilometers;
         this.areaInSquareMeters = areaInSquareMeters;
         this.storageAreaInSquareMeters = storageAreaInSquareMeters;
         this.includePiano = includePiano;
+    }
+
+    public String getRequesterName() {
+        return requesterName;
+    }
+
+    public void setRequesterName(String requesterName) {
+        this.requesterName = requesterName;
+    }
+
+    public String getRequesterEmail() {
+        return requesterEmail;
+    }
+
+    public void setRequesterEmail(String requesterEmail) {
+        this.requesterEmail = requesterEmail;
+    }
+
+    public String getFromAddress() {
+        return fromAddress;
+    }
+
+    public void setFromAddress(String fromAddress) {
+        this.fromAddress = fromAddress;
+    }
+
+    public String getToAddress() {
+        return toAddress;
+    }
+
+    public void setToAddress(String toAddress) {
+        this.toAddress = toAddress;
     }
 
     public int getDistanceInKilometers() {

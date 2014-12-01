@@ -23,6 +23,7 @@ import javax.ws.rs.core.Response;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import static com.valtech.moveit.TestHelper.assertThatActualQuotationEqualsExpectedQuotation;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.startsWith;
@@ -58,7 +59,7 @@ public class QuotationResourceIntegrationTest {
 
     @Test
     public void addQuotation() {
-        Quotation quotation = new Quotation(49, 0, 0, false);
+        Quotation quotation = new Quotation("rName", "rEmail", "fromAddress", "toAddress", 49, 0, 0, false);
         Response response = webTarget.request(MediaType.APPLICATION_JSON).
                 post(Entity.entity(quotation, MediaType.APPLICATION_JSON));
         assertThat(response.getStatus(), is(Response.Status.CREATED.getStatusCode()));
@@ -66,26 +67,20 @@ public class QuotationResourceIntegrationTest {
         assertThat(response.getLocation().toString(), startsWith(deploymentUrl.toString()));
 
         Quotation returnedQuotation = response.readEntity(Quotation.class);
-        assertThat(returnedQuotation.getDistanceInKilometers(), is(quotation.getDistanceInKilometers()));
-        assertThat(returnedQuotation.getAreaInSquareMeters(), is(quotation.getAreaInSquareMeters()));
-        assertThat(returnedQuotation.getStorageAreaInSquareMeters(), is(quotation.getStorageAreaInSquareMeters()));
-        assertThat(returnedQuotation.getIncludePiano(), is(quotation.getIncludePiano()));
+        assertThatActualQuotationEqualsExpectedQuotation(returnedQuotation, quotation);
         assertThat(returnedQuotation.getPrice(), is(1490));
         assertThat(returnedQuotation.getQuotationId(), is(notNullValue()));
     }
 
     @Test
     public void getQuotationById() {
-        Quotation quotation = new Quotation(49, 0, 0, false);
+        Quotation quotation = new Quotation("rName", "rEmail", "fromAddress", "toAddress", 49, 0, 0, false);
         Response response = webTarget.request(MediaType.APPLICATION_JSON)
                 .post(Entity.entity(quotation, MediaType.APPLICATION_JSON));
         Quotation addedQuotation = response.readEntity(Quotation.class);
         Quotation returnedQuotation = client.target(response.getLocation())
                 .request().accept(MediaType.APPLICATION_JSON).get(Quotation.class);
-        assertThat(returnedQuotation.getDistanceInKilometers(), is(quotation.getDistanceInKilometers()));
-        assertThat(returnedQuotation.getAreaInSquareMeters(), is(quotation.getAreaInSquareMeters()));
-        assertThat(returnedQuotation.getStorageAreaInSquareMeters(), is(quotation.getStorageAreaInSquareMeters()));
-        assertThat(returnedQuotation.getIncludePiano(), is(quotation.getIncludePiano()));
+        assertThatActualQuotationEqualsExpectedQuotation(returnedQuotation, addedQuotation);
         assertThat(returnedQuotation.getPrice(), is(1490));
         assertThat(returnedQuotation.getQuotationId(), is(addedQuotation.getQuotationId()));
     }
