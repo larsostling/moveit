@@ -1,0 +1,9 @@
+<label for="distance">Avstånd:</label>
+<input id="distance" type="text" ng-model="quotation.distanceInKilometers" /><br />
+<label for="area">Yta:</label>
+<input id="area" type="text" ng-model="quotation.areaInSquareMeters" /><br />
+<label for="storage-area">Källare/Vind:</label>
+<input id="storage-area" type="text" ng-model="quotation.storageAreaInSquareMeters" /><br />
+<label for="piano">Piano:</label>
+<input id="piano" type="checkbox" ng-model="quotation.includePiano" /><br />
+<button ng-click="addQuotation()" />Skicka</button>
