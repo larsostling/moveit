@@ -14,18 +14,18 @@ public class QuotationService {
     @Inject
     PricingCalculator pricingCalculator;
 
-    private Map<String, Quotation> repository = new HashMap<>();
+    private Map<String, Quotation> inMemoryStorage = new HashMap<>();
 
     public Quotation addQuotation(Quotation quotation) {
         quotation.setPrice(pricingCalculator.calculatePriceForQuotation(quotation));
         String quotationId = generateQuotationId();
         quotation.setQuotationId(quotationId);
-        repository.put(quotationId, quotation);
+        inMemoryStorage.put(quotationId, quotation);
         return quotation;
     }
 
     public Quotation getQuotation(String quotationId) {
-        return repository.get(quotationId);
+        return inMemoryStorage.get(quotationId);
     }
 
     private String generateQuotationId() {
