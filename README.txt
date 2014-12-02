@@ -1,0 +1,18 @@
+Prerequisites
+=============
+For building and running the application, java (8) and maven need to be
+installed.
+
+Building the application
+========================
+The application is built using maven in the project root:
+> mvn clean install
+
+Running the application
+=======================
+The application can be run using maven invoking the embedded glassfish plugin:
+> mvn embedded-glassfish:run
+
+Once the embedded glassfish server has been started you can access the web
+interface for the application through your browser at:
+http://localhost:8080/moveit
