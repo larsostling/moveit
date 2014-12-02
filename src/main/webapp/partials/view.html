@@ -1,10 +1,30 @@
-<label>Offert:</label> {{ quotation.quotationId }}<br />
-<label>Namn:</label> {{ quotation.requesterName }}<br />
-<label>Email:</label> {{ quotation.requesterEmail }}<br />
-<label>Från:</label> {{ quotation.fromAddress }}<br />
-<label>Till:</label> {{ quotation.toAddress }}<br />
-<label>Avstånd:</label> {{ quotation.distanceInKilometers }}<br />
-<label>Yta:</label> {{ quotation.areaInSquareMeters }}<br />
-<label>Källare/Vind:</label> {{ quotation.storageAreaInSquareMeters }}<br />
-<label>Piano:</label> {{ quotation.includePiano }}<br />
-<label>Pris:</label> {{ quotation.price }} kr inkl moms
+<div class="col-xs-12">
+    <h2>Prisförslag för bohagsflytt</h2>
+    <br />
+</div>
+<div class="col-xs-4">
+    <strong>Offertnummer:</strong> {{ quotation.quotationId }}<br />
+    <br />
+    <strong>Namn:</strong> {{ quotation.requesterName }}<br />
+    <strong>Email:</strong> {{ quotation.requesterEmail }}<br />
+    <br />
+    <strong>Från:</strong> {{ quotation.fromAddress }}<br />
+    <strong>Till:</strong> {{ quotation.toAddress }}<br />
+    <strong>Avstånd:</strong> {{ quotation.distanceInKilometers }} km<br />
+    <br />
+    <strong>Yta:</strong> {{ quotation.areaInSquareMeters }} kvm<br />
+    <strong>Källare/Vind:</strong> {{ quotation.storageAreaInSquareMeters }} kvm<br />
+    <br />
+    <strong>Övrigt</strong><br />
+    <strong>Piano:</strong> {{ quotation.includePiano ? 'Ja' : 'Nej' }}<br />
+</div>
+<div class="col-xs-4">
+    <h4>Uppskattat pris: {{ quotation.price }} kr inkl moms</h4>
+    <p>
+        Vi sparar ditt prisförslag i 90 dagar. För att se prisförslaget igen, besök:
+        <a href="http://localhost:8080/moveit/#/view/{{ quotation.quotationId }}">http://localhost:8080/moveit/#/view/{{ quotation.quotationId }}</a>
+    </p>
+    <p>
+        Om du har frågor, kontakta: flytt@moveit.se
+    </p>
+</div>

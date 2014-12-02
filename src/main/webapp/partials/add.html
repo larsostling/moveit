@@ -1,17 +1,66 @@
-<label for="name">Namn:</label>
-<input id="name" type="text" ng-model="quotation.requesterName" /><br />
-<label for="email">Email:</label>
-<input id="email" type="text" ng-model="quotation.requesterEmail" /><br />
-<label for="from">Från:</label>
-<input id="from" type="text" ng-model="quotation.fromAddress" /><br />
-<label for="to">Till:</label>
-<input id="to" type="text" ng-model="quotation.toAddress" /><br />
-<label for="distance">Avstånd:</label>
-<input id="distance" type="text" ng-model="quotation.distanceInKilometers" /><br />
-<label for="area">Yta:</label>
-<input id="area" type="text" ng-model="quotation.areaInSquareMeters" /><br />
-<label for="storage-area">Källare/Vind:</label>
-<input id="storage-area" type="text" ng-model="quotation.storageAreaInSquareMeters" /><br />
-<label for="piano">Piano:</label>
-<input id="piano" type="checkbox" ng-model="quotation.includePiano" /><br />
-<button ng-click="addQuotation()" />Skicka</button>
+<h4 class="col-xs-offset-2 col-xs-10">
+    Mata in dina uppgifter för ett kostnadsfritt kostnadsförslag för din bohagsflytt:
+</h4>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="name" class="control-label col-xs-2">Namn</label>
+        <div class="col-xs-10">
+            <input id="name" type="text" class="form-control" placeholder="Ditt namn"
+                   ng-model="quotation.requesterName">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email" class="control-label col-xs-2">Email</label>
+        <div class="col-xs-10">
+            <input id="email" type="text" class="form-control" placeholder="Din email-adress"
+                   ng-model="quotation.requesterEmail">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="from" class="control-label col-xs-2">Från</label>
+        <div class="col-xs-10">
+            <input id="from" type="text" class="form-control" placeholder="Vilken adress vill du flytta ifrån?"
+                   ng-model="quotation.fromAddress">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="to" class="control-label col-xs-2">Till</label>
+        <div class="col-xs-10">
+            <input id="to" type="text" class="form-control" placeholder="Vilken adress vill du flytta till?"
+                   ng-model="quotation.toAddress">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="distance" class="control-label col-xs-2">Avstånd</label>
+        <div class="col-xs-10">
+            <input id="distance" type="text" class="form-control" placeholder="Avstånd i km"
+                   ng-model="quotation.distanceInKilometers">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="area" class="control-label col-xs-2">Bostadens yta</label>
+        <div class="col-xs-10">
+            <input id="area" type="text" class="form-control" placeholder="Bostadsyta i kvadratmeter"
+                   ng-model="quotation.areaInSquareMeters">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="storage-area" class="control-label col-xs-2">Källare/Vind</label>
+        <div class="col-xs-10">
+            <input id="storage-area" type="text" class="form-control" placeholder="Förvaringsyta i kvadratmeter"
+                   ng-model="quotation.storageAreaInSquareMeters">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+            <div class="checkbox">
+                <label><input type="checkbox" ng-model="quotation.includePiano"> Flytta piano</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+            <button type="submit" class="btn btn-primary" ng-click="addQuotation()">Skicka</button>
+        </div>
+    </div>
+</form>

@@ -2,12 +2,23 @@
 <html ng-app="moveit">
 
 <head>
-    <title>Move IT - Flyttoffert</title>
+    <title>Move IT - Bohagsflytt</title>
+    <link href="webjars/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 
 <body>
 
-<div ng-view></div>
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Move IT - Bohagsflytt</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div ng-view></div>
+</div>
 
 <script src="webjars/angularjs/1.3.4-1/angular.js"></script>
 <script src="webjars/angularjs/1.3.4-1/angular-route.js"></script>
