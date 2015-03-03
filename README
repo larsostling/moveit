@@ -1,3 +1,10 @@
+About
+=====
+Simple Java EE application with a web frontend in Angular JS and Bootstrap.
+The application calculates a price for an imaginary removal service based on
+some predefined rules. The application was built as an assignment for a job
+application process.
+
 Prerequisites
 =============
 For building and running the application, java (8) and maven need to be

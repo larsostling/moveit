@@ -1,6 +1,6 @@
-package com.valtech.moveit.service;
+package com.larsostling.moveit.service;
 
-import com.valtech.moveit.model.Quotation;
+import com.larsostling.moveit.model.Quotation;
 import org.junit.Before;
 import org.junit.Test;
 

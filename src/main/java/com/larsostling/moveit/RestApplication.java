@@ -1,8 +1,8 @@
-package com.valtech.moveit;
+package com.larsostling.moveit;
 
-import com.valtech.moveit.resource.QuotationResource;
-import com.valtech.moveit.service.PricingCalculator;
-import com.valtech.moveit.service.QuotationService;
+import com.larsostling.moveit.resource.QuotationResource;
+import com.larsostling.moveit.service.PricingCalculator;
+import com.larsostling.moveit.service.QuotationService;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

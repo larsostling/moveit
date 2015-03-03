@@ -1,4 +1,4 @@
-package com.valtech.moveit.model;
+package com.larsostling.moveit.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

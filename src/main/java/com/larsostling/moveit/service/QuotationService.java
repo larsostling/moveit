@@ -1,6 +1,6 @@
-package com.valtech.moveit.service;
+package com.larsostling.moveit.service;
 
-import com.valtech.moveit.model.Quotation;
+import com.larsostling.moveit.model.Quotation;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

@@ -1,9 +1,9 @@
-package com.valtech.moveit.resource;
+package com.larsostling.moveit.resource;
 
-import com.valtech.moveit.RestApplication;
-import com.valtech.moveit.model.Quotation;
-import com.valtech.moveit.service.PricingCalculator;
-import com.valtech.moveit.service.QuotationService;
+import com.larsostling.moveit.RestApplication;
+import com.larsostling.moveit.model.Quotation;
+import com.larsostling.moveit.service.PricingCalculator;
+import com.larsostling.moveit.service.QuotationService;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
@@ -23,7 +23,7 @@ import javax.ws.rs.core.Response;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import static com.valtech.moveit.TestHelper.assertThatActualQuotationEqualsExpectedQuotation;
+import static com.larsostling.moveit.TestHelper.assertThatActualQuotationEqualsExpectedQuotation;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.startsWith;

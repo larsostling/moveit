@@ -1,6 +1,6 @@
-package com.valtech.moveit;
+package com.larsostling.moveit;
 
-import com.valtech.moveit.model.Quotation;
+import com.larsostling.moveit.model.Quotation;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

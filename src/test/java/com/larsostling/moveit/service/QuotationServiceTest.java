@@ -1,10 +1,10 @@
-package com.valtech.moveit.service;
+package com.larsostling.moveit.service;
 
-import com.valtech.moveit.model.Quotation;
+import com.larsostling.moveit.TestHelper;
+import com.larsostling.moveit.model.Quotation;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.valtech.moveit.TestHelper.assertThatActualQuotationEqualsExpectedQuotation;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -30,7 +30,7 @@ public class QuotationServiceTest {
     public void addQuotation() {
         Quotation quotation = new Quotation("", "", "", "", 10, 49, 0, false);
         Quotation addedQuotation = underTest.addQuotation(quotation);
-        assertThatActualQuotationEqualsExpectedQuotation(addedQuotation, quotation);
+        TestHelper.assertThatActualQuotationEqualsExpectedQuotation(addedQuotation, quotation);
         assertThat(addedQuotation.getPrice(), is(EXPECTED_PRICE));
         assertThat(addedQuotation.getQuotationId(), is(notNullValue()));
     }
@@ -40,7 +40,7 @@ public class QuotationServiceTest {
         Quotation quotation = new Quotation("", "", "", "", 10, 49, 0, false);
         Quotation expectedQuotation = underTest.addQuotation(quotation);
         Quotation returnedQuotation = underTest.getQuotation(expectedQuotation.getQuotationId());
-        assertThatActualQuotationEqualsExpectedQuotation(returnedQuotation, expectedQuotation);
+        TestHelper.assertThatActualQuotationEqualsExpectedQuotation(returnedQuotation, expectedQuotation);
         assertThat(returnedQuotation.getDistanceInKilometers(), is(expectedQuotation.getDistanceInKilometers()));
         assertThat(returnedQuotation.getAreaInSquareMeters(), is(expectedQuotation.getAreaInSquareMeters()));
         assertThat(returnedQuotation.getStorageAreaInSquareMeters(), is(expectedQuotation.getStorageAreaInSquareMeters()));
